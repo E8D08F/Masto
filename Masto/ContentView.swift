@@ -10,17 +10,25 @@ import SwiftUI
 struct ContentView: View {
     @State private var window: NSWindow!
     @AppStorage("defaultInstance") var defaultInstance: String = ""
+    @AppStorage("browser") var browser: String = "Safari"
     
     var body: some View {
         TabView {
             Form {
-                TextField("Default Instance:", text: $defaultInstance)
+                TextField("Default Instance:",
+                          text: $defaultInstance,
+                          prompt: Text("mastodon.social"))
                 
                 Button("Set Current") {
-                    if let currentURL = Masto.getCurrentURL(),
+                    if let currentURL = Masto.getCurrentURL(in: browser),
                        let host = currentURL.host {
                         defaultInstance = host
                     }
+                }
+                
+                Picker("Browser", selection: $browser) {
+                    Text("Safari").tag("Safari")
+                    Text("Google Chrome").tag("Google Chrome")
                 }
             }
             .padding()

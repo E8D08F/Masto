@@ -16,31 +16,46 @@ struct MastoApp: App {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-    
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     var statusItem: NSStatusItem!
+    var menu: NSMenu!
+    
     @AppStorage("defaultInstance") var defaultInstance: String = ""
+    @AppStorage("browser") var browser: String = "Safari"
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        
         NSApp.windows.first?.performClose(nil)
         
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.image = NSImage(systemSymbolName: "arrowshape.zigzag.right", accessibilityDescription: nil)
         
-        let menu = NSMenu()
-        menu.addItem(withTitle: "Open Remote Profile...",
-                     action: #selector(showOnInstance),
-                     keyEquivalent: "")
-        menu.addItem(.separator())
-        menu.addItem(withTitle: "Settings...", action: #selector(openPreferences), keyEquivalent: ",")
-        menu.addItem(withTitle: "Quit \(NSApp.mainMenu!.items.first!.title)", action: #selector(quit), keyEquivalent: "q")
+        menu = NSMenu()
+        menu.delegate = self
         
         statusItem.menu = menu
     }
     
+    func menuWillOpen(_ menu: NSMenu) {
+        if defaultInstance.isEmpty {
+            menu.addItem(withTitle: "Set Local Instance...",
+                         action: #selector(openPreferences),
+                         keyEquivalent: "")
+        } else {
+            menu.addItem(withTitle: "Follow on \(defaultInstance)...",
+                         action: #selector(showOnInstance),
+                         keyEquivalent: "")
+        }
+        menu.addItem(.separator())
+        menu.addItem(withTitle: "Settings...", action: #selector(openPreferences), keyEquivalent: ",")
+        menu.addItem(withTitle: "Quit \(NSApp.mainMenu!.items.first!.title)", action: #selector(quit), keyEquivalent: "q")
+    }
+    
+    func menuDidClose(_ menu: NSMenu) {
+        menu.removeAllItems()
+    }
+    
     @objc func showOnInstance() {
-        Masto.openProfile(on: defaultInstance)
+        Masto.followRemoteUser(on: defaultInstance, in: browser)
     }
     
     @objc func quit() { NSApp.terminate(nil) }
