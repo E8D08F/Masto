@@ -11,6 +11,7 @@
 		99E3DB382981035100376AF3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3DB372981035100376AF3 /* ContentView.swift */; };
 		99E3DB3A2981035300376AF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E3DB392981035300376AF3 /* Assets.xcassets */; };
 		99E3DB3D2981035400376AF3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99E3DB3C2981035400376AF3 /* Preview Assets.xcassets */; };
+		99E3DB45298115BA00376AF3 /* Masto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3DB44298115BA00376AF3 /* Masto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		99E3DB392981035300376AF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99E3DB3C2981035400376AF3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		99E3DB3E2981035400376AF3 /* Masto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masto.entitlements; sourceTree = "<group>"; };
+		99E3DB44298115BA00376AF3 /* Masto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Masto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				99E3DB352981035100376AF3 /* MastoApp.swift */,
 				99E3DB372981035100376AF3 /* ContentView.swift */,
+				99E3DB44298115BA00376AF3 /* Masto.swift */,
 				99E3DB392981035300376AF3 /* Assets.xcassets */,
 				99E3DB3E2981035400376AF3 /* Masto.entitlements */,
 				99E3DB3B2981035300376AF3 /* Preview Content */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E3DB45298115BA00376AF3 /* Masto.swift in Sources */,
 				99E3DB382981035100376AF3 /* ContentView.swift in Sources */,
 				99E3DB362981035100376AF3 /* MastoApp.swift in Sources */,
 			);
@@ -266,18 +270,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Masto/Masto.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Masto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = asia.chunghwa.Masto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -291,18 +299,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Masto/Masto.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Masto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = asia.chunghwa.Masto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
