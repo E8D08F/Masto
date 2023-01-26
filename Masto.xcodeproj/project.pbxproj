@@ -15,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		996DDC0029821067002C8EFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99E3DB322981035100376AF3 /* Masto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E3DB352981035100376AF3 /* MastoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MastoApp.swift; sourceTree = "<group>"; };
 		99E3DB372981035100376AF3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		99E3DB342981035100376AF3 /* Masto */ = {
 			isa = PBXGroup;
 			children = (
+				996DDC0029821067002C8EFE /* Info.plist */,
 				99E3DB352981035100376AF3 /* MastoApp.swift */,
 				99E3DB372981035100376AF3 /* ContentView.swift */,
 				99E3DB44298115BA00376AF3 /* Masto.swift */,
@@ -277,6 +279,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Masto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Masto/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Allow Masto to guide you through following people on remote Instance.";
@@ -307,6 +310,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Masto/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Masto/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSAppleEventsUsageDescription = "Allow Masto to guide you through following people on remote Instance.";

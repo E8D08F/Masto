@@ -25,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.windows.first?.performClose(nil)
+        NSApp.servicesProvider = ServiceProvider()
+        NSUpdateDynamicServices()
         
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusItem.button?.image = NSImage(systemSymbolName: "arrowshape.zigzag.right", accessibilityDescription: nil)
@@ -67,5 +69,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
         }
         NSApp.activate(ignoringOtherApps: true)
+    }
+}
+
+class ServiceProvider: NSObject {
+    @objc func service(_ pasteboard: NSPasteboard, userData: String?, error: AutoreleasingUnsafeMutablePointer<NSString>) {
+        guard let handle = pasteboard.string(forType: .string) else { return }
+        
+        print(handle)
+        
+        let re = try! NSRegularExpression(pattern: #"@?([^@]+)@(.+)"#)
+        let matches = re.matches(in: handle, range: NSRange(0..<handle.count))
+        if let match = matches.first {
+            let user = handle[Range(match.range(at: 1), in: handle)!]
+            let host = handle[Range(match.range(at: 2), in: handle)!]
+            
+            if let url = URL(string: "https://\(host)/@\(user)") {
+                NSWorkspace.shared.open(url)
+            }
+        }
     }
 }
